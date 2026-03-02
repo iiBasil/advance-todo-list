@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <h1 class="app-title">TaskFlow</h1>
+        <span class="task-counter" id="taskCounter">0 tasks</span>
+      </div>
+
+      <!-- Add Task Form -->
+      <form class="add-task-form" id="addTaskForm" novalidate>
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Add a new task…"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-add" aria-label="Add task">
+          <span class="btn-icon">+</span>
+          <span>Add</span>
+        </button>
+      </form>
+
+      <!-- Error message -->
+      <p class="error-msg" id="errorMsg" aria-live="polite"></p>
+    </header>
+
+    <!-- Filter Tabs -->
+    <nav class="filter-bar" aria-label="Filter tasks">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </nav>
+
+    <!-- Task List -->
+    <main>
+      <ul class="task-list" id="taskList" aria-label="Task list"></ul>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">✦</div>
+        <p class="empty-title">Nothing here yet</p>
+        <p class="empty-sub">Add your first task above to get started.</p>
+      </div>
+    </main>
+
+    <!-- Footer actions -->
+    <footer class="app-footer" id="appFooter" hidden>
+      <span id="activeCount">0 left</span>
+      <button class="btn btn-clear" id="clearCompleted">Clear completed</button>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
